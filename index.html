@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Tetris</title>
+    <link rel="stylesheet" href="./font/fontawesome-free-6.5.2-web/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 320px 200px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .delete-sound {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 10px;
+            left: 30%;
+            border-radius: 10px;
+            background-color: greenyellow;
+        }
+        .delete-sound i {
+            font-size: 20px;
+        }
+        .delete-sound.green {
+            background-color: #999;
+        }
+        .side-bar {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #board {
+            border: 2px solid black;
+        }
+        .remove {
+            display: none;
+        }
+        .play-btn {
+            background-color: greenyellow;
+            font-size: 16px;
+            padding: 15px 30px ;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        @media only screen and (max-width: 768px) {
+            .container {
+                display: flex;
+                flex-direction: column;
+            }
+            #board {
+                width: 70%;
+                height: 70vh;
+                margin: 0 auto;
+            }
+            .side-bar div {
+                margin: 10px auto;
+            }
+            .play-btn {
+                width: 90%;
+                margin: 10px auto;
+                border-radius: 10px;
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .remove.hiden {
+                display: block;
+            }
+            .remove button {
+                padding: 10px 15px;
+                margin: 0 10px;
+                background-color: greenyellow;
+                border-radius: 10px;
+            }
+            .delete-sound {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            border-radius: 10px;
+            background-color: greenyellow;
+        }
+        }
+    </style>
+</head>
+<body>
+    <button class="delete-sound">
+        <i class="fa-solid fa-volume-off"></i>
+    </button>
+    <div class="container">
+        <canvas id="board"></canvas>
+        <div class="side-bar">
+            <div>
+                <h1>TETRIS</h1>
+                <p>Score: <span id="score">0</span></p>
+            </div>
+            <div class="remove">
+                <button class="remove-btn1"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="remove-btn2"><i class="fa-solid fa-arrow-right"></i></button>
+                <button class="remove-btn3"><i class="fa-solid fa-arrow-up"></i></button>
+                <button class="remove-btn4"><i class="fa-solid fa-arrow-down"></i></button>
+            </div>
+            <button class="play-btn" id="play">Play</button>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
